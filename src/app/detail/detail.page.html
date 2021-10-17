@@ -1,16 +1,12 @@
 <app-header title="Detail"></app-header>
 <ion-content>
   <h1 class="text-center">{{movieData?.fullTitle}}</h1>
-  <h3>Escritores: {{movieData?.writers}}</h3>
-  <h3>Directores: {{movieData?.directors}}</h3>
+  <h3 *ngIf="movieData?.writers">Escritores: {{movieData?.writers}}</h3>
+  <h3 *ngIf="movieData?.writers">Directores: {{movieData?.directors}}</h3>
   <app-genre-list [genders]="movieData?.genreList"></app-genre-list>
   <app-genre-list [genders]="movieData?.countryList" color="tertiary"></app-genre-list>
   <app-actor-list class="actor-list" [actorList]="movieData?.actorList" title="Actores">
   </app-actor-list>
   <app-actor-list-card class="actor-list-card" [actorList]="movieData?.actorList" title="Actores">
   </app-actor-list-card>
-  <!-- <p>Argumento: {{movieData?.plot}}</p> -->
-  <!-- <div class="img-center">
-    <ion-img [src]="movieData?.image" class="img-movie"></ion-img>
-  </div> -->
 </ion-content>

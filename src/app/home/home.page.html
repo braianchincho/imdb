@@ -1,7 +1,7 @@
 <app-header title="Home"></app-header>
 
 <ion-content [fullscreen]="true">
-  <ion-searchbar animated (ionBlur)="search($event?.target?.value)">
+  <ion-searchbar animated (ionInput)="search($event?.target?.value)">
   </ion-searchbar>
   <ng-container *ngIf="loading">
     <div class="loading">
