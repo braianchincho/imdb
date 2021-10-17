@@ -1,7 +1,8 @@
 <app-header title="Home"></app-header>
 
 <ion-content [fullscreen]="true">
-  <ion-searchbar animated (ionInput)="search($event?.target?.value)">
+  <h1>imdb-api</h1>
+  <ion-searchbar animated (search)="search($event?.target?.value)" enterkeyhint="send">
   </ion-searchbar>
   <ng-container *ngIf="loading">
     <div class="loading">

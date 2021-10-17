@@ -23,7 +23,7 @@ export class HomePage implements OnInit {
     .pipe(finalize(() => this.loading = false));
   }
   ngOnInit(): void {
-    this.loading = true;
+    
     this.suggestion$ = this.suggestionService.getTop250Movies().pipe(
       map(res => res.map(item => ({
         id: item.id,
