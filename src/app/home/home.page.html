@@ -1,20 +1,31 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header title="Home"></app-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-searchbar animated (ionBlur)="search($event?.target?.value)">
+  </ion-searchbar>
+  <ng-container *ngIf="loading">
+    <div class="loading">
+      <ion-spinner name="circles"></ion-spinner>
+    </div>
+  </ng-container>
+  <ion-grid>
+    <ion-row [hidden]="loading">
+      <ng-container *ngFor="let item of suggestion$ | async">
+        <ion-col size-xs="6" size-md="4" size-lg="3">
+          <ion-card class="card-movie" [routerLink]="['/detail', item.id]">
+            <ion-card-header>
+              <ion-card-subtitle class="text-center">{{item.description}}</ion-card-subtitle>
+              <ion-card-title class="text-center">{{item.title}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="text-center">
+              <img class="card-img" [src]="item.image ? item.image : 'https://imdb-api.com/images/original/nopicture.jpg'" />
+            </ion-card-content>
+          </ion-card> 
+        </ion-col>
+      </ng-container>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+
+<!-- 
+-->

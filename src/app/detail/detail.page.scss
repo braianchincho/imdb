@@ -1,0 +1,29 @@
+.text-center {
+    text-align: center;
+}
+.img-movie {
+    width: 60%;
+    height: 60%;
+}
+.img-center {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 500px) {
+    .actor-list-card {
+        display: none;
+      }
+    .actor-list {
+        display: block;
+    }
+}
+@media (min-width: 500px) {
+    .actor-list {
+        display: none;
+    }
+    .actor-list-card {
+        display: block;
+    }
+}

@@ -1,0 +1,16 @@
+<ion-list>
+  <ion-list-header>
+    <h2>{{title}}</h2>
+  </ion-list-header>
+  <ng-container *ngFor="let actor of actorList">
+    <ion-item>
+      <ion-avatar slot="start">
+        <img [src]="actor.image">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ actor.name }}</h2>
+        <h3>{{ actor.asCharacter }}</h3>
+      </ion-label>
+    </ion-item>
+  </ng-container>
+</ion-list>
