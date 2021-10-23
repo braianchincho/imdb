@@ -15,21 +15,21 @@ export class SuggestionService {
   // https://imdb-api.com/en/API/Top250TVs/k_50hjtewj
   constructor(private _http: HttpClient) { }
   getSuggestion(title: string): Observable<SuggestionModel[]> {
-    return this._http.get<ResponseModel<SuggestionModel>>(`${this.url}/Search/${this.key}/${title}`)
-    // return of(mocksearch)
+    // return this._http.get<ResponseModel<SuggestionModel>>(`${this.url}/Search/${this.key}/${title}`)
+    return of(mocksearch)
       .pipe(
         map(data => data.results)
       );
   }
   getTop250Movies() {
-    // return this._http.get<any>(`${this.url}/Top250TVs/${this.key}`)
-    return of(topmovies)
+    return this._http.get<any>(`${this.url}/Top250TVs/${this.key}`)
+    // return of(topmovies)
     .pipe(
       map(data => data.items)
     );
   }
   getDetailMovie(id: string): Observable<MovieDatail> {
-    // return this._http.get<any>(`${this.url}/Title/${this.key}/${id}`)
-    return of(moviedetail);
+    return this._http.get<any>(`${this.url}/Title/${this.key}/${id}`)
+    // return of(moviedetail);
   }
 }
