@@ -1,10 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      <a (click)="goToBack()">
+      <a (click)="goToBack()" class="back-link__a">
         <ion-icon class="a__back" name="arrow-back-outline"></ion-icon>
       </a>
-       {{ title}}
+       <span class="ml-1">{{ title }}</span>
     </ion-title>
   </ion-toolbar>
 </ion-header>

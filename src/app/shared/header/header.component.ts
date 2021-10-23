@@ -7,6 +7,7 @@ import { Location } from '@angular/common';
 })
 export class HeaderComponent implements OnInit {
   @Input() title: string;
+  @Input() classTitle: string;
   constructor(private _location: Location) { }
 
   ngOnInit() {}
