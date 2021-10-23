@@ -1,12 +1,23 @@
 <app-header title="Detail"></app-header>
 <ion-content>
-  <h1 class="text-center">{{movieData?.fullTitle}}</h1>
-  <h3 *ngIf="movieData?.writers">Escritores: {{movieData?.writers}}</h3>
-  <h3 *ngIf="movieData?.writers">Directores: {{movieData?.directors}}</h3>
+    <h1 class="text-center">{{movieData?.fullTitle}}</h1>
+    <div class="img--div">
+      <img [src]="movieData?.image">
+    </div>
+
+  <p *ngIf="movieData?.writers"> 
+    <strong>Escrito por</strong> {{movieData?.writers}}
+  </p>
+  <p *ngIf="movieData?.directors">
+    <strong>Directores:</strong> {{movieData?.directors}}
+  </p>
   <app-genre-list [genders]="movieData?.genreList"></app-genre-list>
+ 
   <app-genre-list [genders]="movieData?.countryList" color="tertiary"></app-genre-list>
+  <!-- desktop -->
   <app-actor-list class="actor-list" [actorList]="movieData?.actorList" title="Actores">
   </app-actor-list>
+   <!-- mobile -->
   <app-actor-list-card class="actor-list-card" [actorList]="movieData?.actorList" title="Actores">
   </app-actor-list-card>
 </ion-content>

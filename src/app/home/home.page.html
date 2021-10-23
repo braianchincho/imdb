@@ -1,31 +1,41 @@
 <app-header title="Home"></app-header>
 
 <ion-content [fullscreen]="true">
-  <h1>imdb-api</h1>
-  <ion-searchbar animated (search)="search($event?.target?.value)" enterkeyhint="send">
+  <h1>imdb</h1>
+  <ion-searchbar 
+    animated
+    #inputSearch
+    id="inputSearch"
+    (keyup.enter)="search($event?.target?.value)" 
+    enterkeyhint="send"
+    placeholder="Ingrese una película o serie"
+  >
   </ion-searchbar>
-  <ng-container *ngIf="loading">
-    <div class="loading">
-      <ion-spinner name="circles"></ion-spinner>
-    </div>
-  </ng-container>
-  <ion-grid>
-    <ion-row [hidden]="loading">
-      <ng-container *ngFor="let item of suggestion$ | async">
-        <ion-col size-xs="6" size-md="4" size-lg="3">
-          <ion-card class="card-movie" [routerLink]="['/detail', item.id]">
-            <ion-card-header>
-              <ion-card-subtitle class="text-center">{{item.description}}</ion-card-subtitle>
-              <ion-card-title class="text-center">{{item.title}}</ion-card-title>
-            </ion-card-header>
-            <ion-card-content class="text-center">
-              <img class="card-img" [src]="item.image ? item.image : 'https://imdb-api.com/images/original/nopicture.jpg'" />
-            </ion-card-content>
-          </ion-card> 
-        </ion-col>
-      </ng-container>
-    </ion-row>
-  </ion-grid>
+  <div id="contentDiv">
+    <ng-container *ngIf="loading">
+      <div class="loading">
+        <ion-spinner name="circles"></ion-spinner>
+      </div>
+    </ng-container>
+    <ion-grid>
+      <ion-row [hidden]="loading">
+        <ng-container *ngFor="let item of suggestion$ | async">
+          <ion-col size-xs="6" size-md="4" size-lg="3">
+            <ion-card class="card-movie" [routerLink]="['/detail', item.id]">
+              <ion-card-header>
+                <ion-card-subtitle class="text-center">{{item.description}}</ion-card-subtitle>
+                <ion-card-title class="text-center">{{item.title}}</ion-card-title>
+              </ion-card-header>
+              <ion-card-content class="text-center">
+                <img class="card-img" [src]="item.image ? item.image : 'https://imdb-api.com/images/original/nopicture.jpg'" />
+              </ion-card-content>
+            </ion-card> 
+          </ion-col>
+        </ng-container>
+      </ion-row>
+    </ion-grid>
+  </div>
+
 </ion-content>
 
 <!-- 

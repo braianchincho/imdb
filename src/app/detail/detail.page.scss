@@ -10,7 +10,10 @@
     display: flex;
     justify-content: center;
 }
-
+.img--div {
+    display: flex;
+    justify-content: center;
+}
 @media (max-width: 500px) {
     .actor-list-card {
         display: none;

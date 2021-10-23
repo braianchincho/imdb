@@ -22,14 +22,14 @@ export class SuggestionService {
       );
   }
   getTop250Movies() {
-    return this._http.get<any>(`${this.url}/Top250TVs/${this.key}`)
-    // return of(topmovies)
+    // return this._http.get<any>(`${this.url}/Top250TVs/${this.key}`)
+    return of(topmovies)
     .pipe(
       map(data => data.items)
     );
   }
   getDetailMovie(id: string): Observable<MovieDatail> {
-    return this._http.get<any>(`${this.url}/Title/${this.key}/${id}`)
-    // return of(moviedetail);
+    // return this._http.get<any>(`${this.url}/Title/${this.key}/${id}`)
+    return of(moviedetail);
   }
 }
